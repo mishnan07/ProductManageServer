@@ -6,6 +6,4 @@ const route = express.Router()
 route.post('/register',controller.UserRegister)
 route.post('/login',controller.UserLogin)
 
-
-
 export default route;   

@@ -7,7 +7,9 @@ import { generateAuthToken } from "../Middleware/userAuth.js";
 export const UserRegister = asyncErrorHandler(async (req) => {
     
     let userDetails = req.body;
+    
     const user = await models.Users.findOne({ email: userDetails.email });
+
     userDetails.password = await bcrypt.hash(userDetails.password, 10);
     userDetails.email = userDetails.email?.trim()
     userDetails.name = userDetails.name?.trim()
